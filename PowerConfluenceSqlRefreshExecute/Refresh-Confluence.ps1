@@ -1,6 +1,7 @@
 #import modules
-#Import-Module (Join-Path -Path $PSScriptRoot -ChildPath \..\PowerConfluence\PowerConfluence\PowerConfluence.psm1) -Force
-Import-Module (Join-Path -Path $PSScriptRoot -ChildPath \..\PowerConfluenceSqlRefresh\PowerConfluenceSqlRefresh\PowerConfluenceSqlRefresh.psd1) -Force
+Import-Module (Join-Path -Path $PSScriptRoot -ChildPath \..\..\PowerAtlassianCore\PowerAtlassianCore\PowerAtlassianCore.psm1) -Force
+Import-Module (Join-Path -Path $PSScriptRoot -ChildPath \..\..\PowerConfluence\PowerConfluence\PowerConfluence.psm1) -Force
+Import-Module (Join-Path -Path $PSScriptRoot -ChildPath \..\..\PowerConfluenceSqlRefresh\PowerConfluenceSqlRefresh\PowerConfluenceSqlRefresh.psm1) -Force
 #Import-Module PowerConfluenceSqlRefresh -Force
 
 #import the variable $ConfluenceCredentials
@@ -11,7 +12,7 @@ Import-Module (Join-Path -Path $PSScriptRoot -ChildPath \credentials\Credentials
 ####################################################
 
 $options = @{
-    
+    Users = $true
 }
 
 #configure the database targets and refresh type
@@ -28,7 +29,7 @@ if(!$getAll) {
 }
 
 ####################################################
-#  OPEN CONFLUENCE SESSION                               #
+#  OPEN CONFLUENCE SESSION                         #
 ####################################################
 
 Open-ConfluenceSession @ConfluenceCredentials
@@ -40,7 +41,7 @@ Open-ConfluenceSession @ConfluenceCredentials
 Update-ConfluenceSql @paramSplat -Verbose
 
 ####################################################
-#  CLOSE CONFLUENCE SESSION                              #
+#  CLOSE CONFLUENCE SESSION                        #
 ####################################################
 
 Close-ConfluenceSession
