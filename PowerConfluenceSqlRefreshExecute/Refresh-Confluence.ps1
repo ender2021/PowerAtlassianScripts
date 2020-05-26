@@ -1,6 +1,6 @@
 #import modules
-Import-Module (Join-Path -Path $PSScriptRoot -ChildPath \..\..\PowerAtlassianCore\PowerAtlassianCore\PowerAtlassianCore.psm1) -Force
-Import-Module (Join-Path -Path $PSScriptRoot -ChildPath \..\..\PowerConfluence\PowerConfluence\PowerConfluence.psm1) -Force
+Import-Module (Join-Path -Path $PSScriptRoot -ChildPath \..\..\PowerAtlassianCore\PowerAtlassianCore\PowerAtlassianCore.psm1)
+Import-Module (Join-Path -Path $PSScriptRoot -ChildPath \..\..\PowerConfluence\PowerConfluence\PowerConfluence.psm1)
 Import-Module (Join-Path -Path $PSScriptRoot -ChildPath \..\..\PowerConfluenceSqlRefresh\PowerConfluenceSqlRefresh\PowerConfluenceSqlRefresh.psm1) -Force
 #Import-Module PowerConfluenceSqlRefresh -Force
 
@@ -13,6 +13,10 @@ Import-Module (Join-Path -Path $PSScriptRoot -ChildPath \credentials\Credentials
 
 $options = @{
     Users = $true
+    Groups = @{
+        Groups = $true
+        Users = $true
+    }
 }
 
 #configure the database targets and refresh type
