@@ -35,7 +35,7 @@ New-Item "$Path\Tests\$ModuleName.Tests.ps1" -ItemType File
 
 #create the manifest
 New-ModuleManifest -Path $Path\$ModuleName\$ModuleName.psd1 `
-                   -RootModule $ModuleName.psm1 `
+                   -RootModule "$ModuleName.psm1" `
                    -Description $Description `
                    -PowerShellVersion 6.1 `
                    -Author $Author `
